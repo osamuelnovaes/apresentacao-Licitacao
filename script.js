@@ -42,13 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let shouldShow = false;
 
         if (currentFilter === 'all') {
-            // Na aba Todos mostra tudo, menos os carrosseis expansivos
-            shouldShow = !item.classList.contains('carousel-wrapper');
+            // Na aba Todos mostra tudo, menos os carrosseis e as listas de videos reais
+            const isCarousel = item.classList.contains('carousel-wrapper');
+            const isRealVideo = item.classList.contains('video-wrapper');
+            shouldShow = !isCarousel && !isRealVideo;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
                     // Na aba Identidade Visual mostra apenas os carrosseis e esconde os cards simples
                     shouldShow = item.classList.contains('carousel-wrapper');
+                } else if (category === 'video') {
+                    // Na aba de Video mostra apenas os videos reais e oculta o card basico
+                    shouldShow = item.classList.contains('video-wrapper');
                 } else {
                     shouldShow = true;
                 }
@@ -68,6 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
     idVisualCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'identidade-visual';
+        });
+    });
+
+    // Switch to Video editing when clicking standard video card
+    const videoCards = document.querySelectorAll('.video-card');
+    videoCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'edicao-de-video';
         });
     });
 
