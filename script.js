@@ -84,6 +84,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Video Lightbox Logic
+    const videoWrappers = document.querySelectorAll('.video-wrapper');
+    videoWrappers.forEach(wrapper => {
+        wrapper.style.cursor = 'pointer';
+        wrapper.addEventListener('click', () => {
+            const videoSrc = wrapper.querySelector('video').src;
+
+            // Create modal overlay
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            modal.style.zIndex = '999999';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.cursor = 'pointer';
+
+            // Create video element
+            const video = document.createElement('video');
+            video.src = videoSrc;
+            video.controls = true;
+            video.autoplay = true;
+            video.style.maxWidth = '90%';
+            video.style.maxHeight = '90%';
+            video.style.borderRadius = '8px';
+            video.style.cursor = 'default';
+            video.style.boxShadow = '0 10px 40px rgba(0,0,0,0.5)';
+
+            // Prevent exact video clicks from closing modal
+            video.addEventListener('click', (e) => e.stopPropagation());
+
+            modal.appendChild(video);
+
+            // Create close button
+            const closeBtn = document.createElement('div');
+            closeBtn.innerHTML = '&times;';
+            closeBtn.style.position = 'absolute';
+            closeBtn.style.top = '20px';
+            closeBtn.style.right = '40px';
+            closeBtn.style.color = '#fff';
+            closeBtn.style.fontSize = '40px';
+            closeBtn.style.fontWeight = 'bold';
+            modal.appendChild(closeBtn);
+
+            // Remove on click
+            modal.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+
+            document.body.appendChild(modal);
+        });
+    });
+
     // Initialize Swiper for Identidade Visual
     const swiperElements = document.querySelectorAll('.id-visual-swiper');
     swiperElements.forEach(element => {
