@@ -399,13 +399,19 @@ body {
 .carousel-wrapper {
     margin-top: 1rem;
     margin-bottom: 2rem;
+    max-width: 800px;
+    /* Force wrapper to not be absurdly wide */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .carousel-header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    /* Center headers */
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .carousel-header .category-tag {
@@ -421,16 +427,30 @@ body {
 
 .id-visual-swiper {
     width: 100%;
+    max-width: 700px;
     padding: 1.5rem 0.5rem 4rem 0.5rem;
     /* space for pagination and shadow */
-    margin: -1.5rem -0.5rem 0 -0.5rem;
-    /* offset padding so aligned with grid */
+    margin: 0 auto;
+    /* Center swiper internally */
 }
 
 .swiper-slide {
     height: auto;
     /* Ensure the swiper content isn't forced into the grid */
     min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-height: 70vh;
+    /* Don't exceed most of screen height */
+    width: auto;
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
 }
 
 /* Fix CSS grid causing inline blocks with swiper-slide to squish visually or not show up */
