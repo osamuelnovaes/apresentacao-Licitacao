@@ -429,6 +429,12 @@ body {
 
 .swiper-slide {
     height: auto;
+    /* Ensure the swiper content isn't forced into the grid */
+    min-height: 100%;
+}
+
+/* Fix CSS grid causing inline blocks with swiper-slide to squish visually or not show up */
+.portfolio-grid .span-full .swiper-wrapper {
     display: flex;
 }
 

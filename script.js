@@ -29,29 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize Swiper for Identidade Visual
-    const swiper = new Swiper('.id-visual-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        grabCursor: true,
-        loop: false,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
+    const swiperElements = document.querySelectorAll('.id-visual-swiper');
+    swiperElements.forEach(element => {
+        new Swiper(element, {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            grabCursor: true,
+            loop: false,
+            pagination: {
+                el: element.querySelector('.swiper-pagination'),
+                clickable: true,
             },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-        }
+            navigation: {
+                nextEl: element.querySelector('.swiper-button-next'),
+                prevEl: element.querySelector('.swiper-button-prev'),
+            }
+        });
     });
 });
 
