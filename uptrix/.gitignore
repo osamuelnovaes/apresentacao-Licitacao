@@ -1,0 +1,9 @@
+# Ignore large video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Don't ignore videos in the /videos folder
+!/videos/*.mp4
+!/videos/*.mov
