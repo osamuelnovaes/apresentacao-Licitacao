@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     for (const [path, filter] of Object.entries(filterMap)) {
-        if (currentPath.includes(path)) {
+        if (currentPath.endsWith(path) || currentPath.endsWith(path + ".html")) {
             currentFilter = filter;
             break;
         }
