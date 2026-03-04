@@ -2,56 +2,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
+    // Determine current filter from URL
+    let currentPath = window.location.pathname;
+    let currentFilter = 'all'; // default
 
-            const filterValue = button.getAttribute('data-filter');
+    const filterMap = {
+        'trafego-pago': 'trafego',
+        'social-media': 'social',
+        'edicao-de-video': 'video',
+        'identidade-visual': 'id-visual',
+        'design-de-arte': 'arte',
+        'landing-page': 'landing-page',
+        'crm': 'crm',
+        'sistemas': 'sistema',
+        'automacao-com-ia': 'ia',
+        'estrategia-de-marketing': 'marketing',
+        'home': 'all'
+    };
 
-            portfolioItems.forEach(item => {
-                const category = item.getAttribute('data-category');
+    for (const [path, filter] of Object.entries(filterMap)) {
+        if (currentPath.includes(path)) {
+            currentFilter = filter;
+            break;
+        }
+    }
 
-                // Reset animation styles for smooth transition re-triggering
-                item.style.animation = 'none';
-                item.offsetHeight; // Trigger reflow to restart animation
+    // Update active class on links
+    filterButtons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === currentFilter) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
 
-                let shouldShow = false;
-                if (filterValue === 'all') {
-                    // Na aba Todos mostra tudo, menos os carrosseis expansivos
-                    shouldShow = !item.classList.contains('carousel-wrapper');
+    // Apply filter logic
+    portfolioItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        let shouldShow = false;
+
+        if (currentFilter === 'all') {
+            // Na aba Todos mostra tudo, menos os carrosseis expansivos
+            shouldShow = !item.classList.contains('carousel-wrapper');
+        } else {
+            if (currentFilter === category) {
+                if (category === 'id-visual') {
+                    // Na aba Identidade Visual mostra apenas os carrosseis e esconde os cards simples
+                    shouldShow = item.classList.contains('carousel-wrapper');
                 } else {
-                    if (filterValue === category) {
-                        if (category === 'id-visual') {
-                            // Na aba Identidade Visual mostra apenas os carrosseis e esconde os cards simples
-                            shouldShow = item.classList.contains('carousel-wrapper');
-                        } else {
-                            shouldShow = true;
-                        }
-                    }
+                    shouldShow = true;
                 }
+            }
+        }
 
-                if (shouldShow) {
-                    item.classList.remove('hide');
-                    item.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
-                } else {
-                    item.classList.add('hide');
-                }
-            });
-        });
+        if (shouldShow) {
+            item.classList.remove('hide');
+            item.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+        } else {
+            item.classList.add('hide');
+        }
     });
 
     // Switch to Identity Visual when clicking standard cards
     const idVisualCards = document.querySelectorAll('.id-visual-card');
     idVisualCards.forEach(card => {
         card.addEventListener('click', () => {
-            const idVisualButton = document.querySelector('.filter-btn[data-filter="id-visual"]');
-            if (idVisualButton) {
-                idVisualButton.click();
-                window.scrollTo({ top: document.getElementById('portfolio-filters').offsetTop - 50, behavior: 'smooth' });
-            }
+            window.location.href = 'identidade-visual';
         });
     });
 
