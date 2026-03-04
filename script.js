@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             portfolioItems.forEach(item => {
                 const category = item.getAttribute('data-category');
-                
+
                 // Reset animation styles for smooth transition re-triggering
                 item.style.animation = 'none';
                 item.offsetHeight; // Trigger reflow to restart animation
@@ -26,6 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    });
+
+    // Initialize Swiper for Identidade Visual
+    const swiper = new Swiper('.id-visual-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        }
     });
 });
 
