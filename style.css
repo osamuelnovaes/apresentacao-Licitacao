@@ -444,9 +444,8 @@ body {
 }
 
 .swiper-slide img {
-    max-height: 70vh;
-    /* Don't exceed most of screen height */
-    width: auto;
+    width: 592px;
+    height: 450.219px;
     max-width: 100%;
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
