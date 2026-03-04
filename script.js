@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentFilter === 'all') {
             // Na aba Todos mostra tudo, menos os carrosseis e as listas de videos reais
             const isCarousel = item.classList.contains('carousel-wrapper');
-            const isRealVideo = item.classList.contains('video-wrapper');
+            const isRealVideo = item.classList.contains('video-wrapper') && category === 'video';
             shouldShow = !isCarousel && !isRealVideo;
         } else {
             if (currentFilter === category) {
