@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação de Serviços | Portfólio Premium</title>
+    <meta name="description"
+        content="Explore nossos serviços e cases de sucesso. Filtre por categorias e descubra nossas especialidades.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <header class="hero">
+        <h1 id="main-title">Nosso Portfólio de Soluções</h1>
+        <p>Soluções sob medida baseadas em dados e performance. Selecione uma área para explorar nossos trabalhos.</p>
+    </header>
+
+    <main class="portfolio-container">
+        <!-- Filtros -->
+        <nav class="filters" id="portfolio-filters" aria-label="Filtro de serviços">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="trafego">Tráfego Pago</button>
+            <button class="filter-btn" data-filter="social">Social Media</button>
+            <button class="filter-btn" data-filter="video">Edição de Vídeo</button>
+            <button class="filter-btn" data-filter="id-visual">Identidade Visual</button>
+            <button class="filter-btn" data-filter="arte">Design de Arte</button>
+            <button class="filter-btn" data-filter="landing-page">Landing Page</button>
+            <button class="filter-btn" data-filter="crm">CRM</button>
+            <button class="filter-btn" data-filter="sistema">Sistemas</button>
+            <button class="filter-btn" data-filter="ia">Automação com IA</button>
+            <button class="filter-btn" data-filter="marketing">Estratégia de Marketing</button>
+        </nav>
+
+        <!-- Grid de portfólio -->
+        <div class="portfolio-grid" id="portfolio-grid">
+
+            <article class="portfolio-item" data-category="trafego">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600"
+                        alt="Dashboard de Tráfego" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag trafego-tag">Tráfego Pago</span>
+                    <h2>E-commerce Escalável</h2>
+                    <p>Aumento expressivo no ROAS com gestão inteligente das campanhas.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="social">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600"
+                        alt="Redes Sociais" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag social-tag">Social Media</span>
+                    <h2>Gestão de Comunidades</h2>
+                    <p>Criação de conteúdo atrativo e crescimento sustentável com alto engajamento.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="video">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=600"
+                        alt="Edição de Vídeo" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag video-tag">Vídeo</span>
+                    <h2>Produções Dinâmicas</h2>
+                    <p>Vídeos cinematográficos para prender a atenção e impulsionar vendas.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="id-visual">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600"
+                        alt="Identidade Visual" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag id-visual-tag">ID Visual</span>
+                    <h2>Branding Premium</h2>
+                    <p>Conceitos visuais únicos desenvolvidos em total alinhamento com a marca.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="arte">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=600"
+                        alt="Criação de Artes" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag arte-tag">Designer</span>
+                    <h2>Peças Publicitárias</h2>
+                    <p>Composições gráficas criadas com foco em retenção de tela e CTR.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="landing-page">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
+                        alt="Landing Page" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag landing-page-tag">Landing Page</span>
+                    <h2>Lançamento Imobiliário</h2>
+                    <p>Páginas de alta performance focadas unicamente em conversão de leads.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="crm">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600"
+                        alt="CRM" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag crm-tag">CRM</span>
+                    <h2>Automação de Vendas B2B</h2>
+                    <p>Aceleração do funil comercial mapeando 100% da jornada do usuário.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="sistema">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600"
+                        alt="Desenvolvimento de Sistemas" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag sistema-tag">Sistema Customizado</span>
+                    <h2>Arquitetura Inovadora</h2>
+                    <p>Sistemas robustos desenvolvidos sob medida para desafios complexos.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="ia">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21e309cc21d5?auto=format&fit=crop&q=80&w=600"
+                        alt="Inteligência Artificial" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag ia-tag">Automação IA</span>
+                    <h2>Integração com GPT-4</h2>
+                    <p>Personalize processos em escala integrando grandes modelos de linguagem.</p>
+                </div>
+            </article>
+
+            <article class="portfolio-item" data-category="marketing">
+                <div class="item-visual">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=600"
+                        alt="Estratégia" loading="lazy">
+                    <div class="item-overlay"><span>Ver Detalhes</span></div>
+                </div>
+                <div class="item-content">
+                    <span class="category-tag marketing-tag">Marketing Ominichannel</span>
+                    <h2>Posicionamento de Mercado</h2>
+                    <p>Orientação estratégica para liderar o segmento com consistência e agressividade.</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Apresentação. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
