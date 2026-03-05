@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Na aba Todos mostra tudo, menos os carrosseis e as listas de videos reais
             const isCarousel = item.classList.contains('carousel-wrapper');
             const isRealVideo = item.classList.contains('video-wrapper') && category === 'video';
-            shouldShow = !isCarousel && !isRealVideo;
+            const isRealSocial = item.classList.contains('social-real-card');
+            shouldShow = !isCarousel && !isRealVideo && !isRealSocial;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
@@ -54,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (category === 'video') {
                     // Na aba de Video mostra apenas os videos reais e oculta o card basico
                     shouldShow = item.classList.contains('video-wrapper');
+                } else if (category === 'social') {
+                    // Na aba de Social mostra apenas os cards reais e oculta o card basico
+                    shouldShow = item.classList.contains('social-real-card');
                 } else {
                     shouldShow = true;
                 }
@@ -81,6 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     videoCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'edicao-de-video';
+        });
+    });
+
+    // Switch to Social Media when clicking standard social card
+    const socialCards = document.querySelectorAll('.social-card');
+    socialCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'social-media';
         });
     });
 
