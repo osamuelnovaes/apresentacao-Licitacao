@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isCarousel = item.classList.contains('carousel-wrapper');
             const isRealVideo = item.classList.contains('video-wrapper') && category === 'video';
             const isRealSocial = item.classList.contains('social-real-card');
-            shouldShow = !isCarousel && !isRealVideo && !isRealSocial;
+            const isRealArte = item.classList.contains('arte-real-card');
+            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
@@ -58,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (category === 'social') {
                     // Na aba de Social mostra apenas os cards reais e oculta o card basico
                     shouldShow = item.classList.contains('social-real-card');
+                } else if (category === 'arte') {
+                    // Na aba de Arte mostra apenas os cards reais e oculta o card basico
+                    shouldShow = item.classList.contains('arte-real-card');
                 } else {
                     shouldShow = true;
                 }
@@ -93,6 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
     socialCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'social-media';
+        });
+    });
+
+    // Switch to Design de Arte when clicking standard arte card
+    const arteCards = document.querySelectorAll('.arte-card');
+    arteCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'design-de-arte';
         });
     });
 
