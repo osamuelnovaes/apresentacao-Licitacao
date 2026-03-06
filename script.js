@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'landing-page': 'landing-page',
         'crm': 'crm',
         'sistemas': 'sistema',
+        'licencas': 'licencas',
         'automacao-com-ia': 'ia',
         'estrategia-de-marketing': 'marketing',
         'home': 'all'
@@ -48,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRealSocial = item.classList.contains('social-real-card');
             const isRealArte = item.classList.contains('arte-real-card');
             const isRealSistema = item.classList.contains('sistema-real-card');
-            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema;
+            const isRealLicencas = item.classList.contains('licencas-real-card');
+            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema && !isRealLicencas;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
@@ -66,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (category === 'sistema') {
                     // Na aba de Sistema mostra apenas os cards reais e oculta o card basico
                     shouldShow = item.classList.contains('sistema-real-card');
+                } else if (category === 'licencas') {
+                    shouldShow = item.classList.contains('licencas-real-card');
                 } else {
                     shouldShow = true;
                 }
@@ -117,6 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
     sistemaCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'sistemas';
+        });
+    });
+
+    // Switch to Licenças when clicking standard licencas card
+    const licencasCards = document.querySelectorAll('.licencas-card');
+    licencasCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'licencas';
         });
     });
 
