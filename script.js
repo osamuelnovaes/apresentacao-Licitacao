@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRealSistema = item.classList.contains('sistema-real-card');
             const isRealLicencas = item.classList.contains('licencas-real-card');
             const isRealConsultoria = item.classList.contains('consultoria-real-card');
-            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema && !isRealLicencas && !isRealConsultoria;
+            const isRealIa = item.classList.contains('ia-real-card');
+            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema && !isRealLicencas && !isRealConsultoria && !isRealIa;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
@@ -73,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     shouldShow = item.classList.contains('licencas-real-card');
                 } else if (category === 'consultoria') {
                     shouldShow = item.classList.contains('consultoria-real-card');
+                } else if (category === 'ia') {
+                    shouldShow = item.classList.contains('ia-real-card');
                 } else {
                     shouldShow = true;
                 }
@@ -140,6 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
     consultoriaCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'consultoria';
+        });
+    });
+
+    // Switch to IA when clicking standard IA card
+    const iaCards = document.querySelectorAll('.ia-card');
+    iaCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'automacao-com-ia';
         });
     });
 
