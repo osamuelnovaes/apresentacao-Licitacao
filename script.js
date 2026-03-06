@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'sistemas': 'sistema',
         'licencas': 'licencas',
         'automacao-com-ia': 'ia',
-        'estrategia-de-marketing': 'marketing',
+        'consultoria': 'consultoria',
         'home': 'all'
     };
 
@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRealArte = item.classList.contains('arte-real-card');
             const isRealSistema = item.classList.contains('sistema-real-card');
             const isRealLicencas = item.classList.contains('licencas-real-card');
-            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema && !isRealLicencas;
+            const isRealConsultoria = item.classList.contains('consultoria-real-card');
+            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema && !isRealLicencas && !isRealConsultoria;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
@@ -70,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     shouldShow = item.classList.contains('sistema-real-card');
                 } else if (category === 'licencas') {
                     shouldShow = item.classList.contains('licencas-real-card');
+                } else if (category === 'consultoria') {
+                    shouldShow = item.classList.contains('consultoria-real-card');
                 } else {
                     shouldShow = true;
                 }
@@ -129,6 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
     licencasCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'licencas';
+        });
+    });
+
+    // Switch to Consultoria when clicking standard consultoria card
+    const consultoriaCards = document.querySelectorAll('.consultoria-card');
+    consultoriaCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'consultoria';
         });
     });
 
