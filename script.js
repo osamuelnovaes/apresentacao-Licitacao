@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRealVideo = item.classList.contains('video-wrapper') && category === 'video';
             const isRealSocial = item.classList.contains('social-real-card');
             const isRealArte = item.classList.contains('arte-real-card');
-            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte;
+            const isRealSistema = item.classList.contains('sistema-real-card');
+            shouldShow = !isCarousel && !isRealVideo && !isRealSocial && !isRealArte && !isRealSistema;
         } else {
             if (currentFilter === category) {
                 if (category === 'id-visual') {
@@ -62,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (category === 'arte') {
                     // Na aba de Arte mostra apenas os cards reais e oculta o card basico
                     shouldShow = item.classList.contains('arte-real-card');
+                } else if (category === 'sistema') {
+                    // Na aba de Sistema mostra apenas os cards reais e oculta o card basico
+                    shouldShow = item.classList.contains('sistema-real-card');
                 } else {
                     shouldShow = true;
                 }
@@ -105,6 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
     arteCards.forEach(card => {
         card.addEventListener('click', () => {
             window.location.href = 'design-de-arte';
+        });
+    });
+
+    // Switch to Sistemas when clicking standard sistema card
+    const sistemaCards = document.querySelectorAll('.sistema-card');
+    sistemaCards.forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = 'sistemas';
         });
     });
 
